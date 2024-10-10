@@ -31,7 +31,6 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-aop")
 	implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j:2.1.6")
 	implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
-	implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
 
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
@@ -47,4 +46,16 @@ dependencyManagement {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+
+tasks.apply {
+	bootJar {
+		// 실행 가능한 JAR 생성 설정
+		enabled = true
+	}
+	jar {
+		// 일반 JAR 파일 생성 비활성화
+		enabled = false
+	}
 }

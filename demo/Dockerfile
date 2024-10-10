@@ -11,7 +11,7 @@ RUN sed -i 's/\r$//' gradlew
 RUN chmod +x ./gradlew
 RUN ./gradlew clean build
 
-ARG JAR_FILE=/build/libs/*.jar
+ARG JAR_FILE=/build/libs/demo-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 
 ENV SERVER_PORT=8080
